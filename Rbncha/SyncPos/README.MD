@@ -1,7 +1,7 @@
 # magento2-mirakl-vend-integration
 
-# Goal of the module is to integrate Magento 2
-with >> Mirakl (www.mirakl.com) for order processing for Vend POS (www.vendhq.com) system
+# Goal of the module is to integrate
+Magento 2 with >> Mirakl (www.mirakl.com) order processing system >> for Vend POS (www.vendhq.com) system
 
 ## Pretty simple to start using
 
