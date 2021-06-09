@@ -1,0 +1,32 @@
+<?php
+namespace Rbncha\SyncPos\Controller\Vend;
+
+use \Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
+
+class SyncAll extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
+{
+    protected $_helperVend;
+
+    /**
+     * @param \Magento\Framework\App\Action\Context $context
+     */
+    public function __construct(
+        \Magento\Framework\App\Action\Context $context,
+        \Rbncha\SyncPos\Helper\Vend $vendHelper
+    ) {
+        $this->_helperVend = $vendHelper;
+
+        return parent::__construct($context);
+    }
+    /**
+     * View page action
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
+    public function execute()
+    {
+        $this->_helperVend->syncOrderItems();
+
+        exit('<br>Done');
+    }
+}

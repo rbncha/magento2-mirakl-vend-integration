@@ -1,0 +1,32 @@
+{
+    "name": "rbncha/syncpos",
+    "description": "Syncronize Magento 2 ordered products to Vend POS system",
+    "require": {
+      "guzzlehttp/guzzle": "^7.2.0"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "authors": [
+      {
+        "name": "Rubin Shrestha",
+        "email": "rubin.sth@gmail.com",
+        "homepage": "https://www.rubin.com.np",
+        "role": "Developer"
+      }
+    ],
+    "keywords": [
+      "magento 2",
+      "Vend Integration",
+      "magento 2 to Vend Integration"
+    ],
+    "autoload": {
+      "files": [
+        "registration.php"
+      ],
+      "psr-4": {
+        "Rbncha\\SyncPos\\": ""
+      }
+    }
+  }
+  

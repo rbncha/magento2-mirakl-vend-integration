@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- This will add additional column header to order list -->
+    <referenceBlock name="sales.order.history.extra.column.header">
+        <block name="rsyncpos.additional.column.header" template="Rbncha_SyncPos::customer-vend-header.phtml"/>
+    </referenceBlock>
+ 
+    <!-- You can access current order using $this->getOrder() inside the template "-->
+    <referenceBlock name="sales.order.history.extra.container">
+        <block name="rsyncpos.additional.column.data" template="Rbncha_SyncPos::customer-vend.phtml"/>
+    </referenceBlock>
+    </body>
+</page>

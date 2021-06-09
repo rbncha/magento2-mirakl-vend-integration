@@ -1,0 +1,7 @@
+<?php
+    /* @var $block \Magento\Sales\Block\Order\History\Container */
+  ?>
+
+  <td data-th="<?= $block->escapeHtml(__('Vend Synced')) ?>" class="col">
+    <?= $block->escapeHtml($block->getOrder()->getVendSynced()) ?>
+  </td>

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="rsync_vend_email_template" label="Vend Synced Email" file="vend_email_template.html" type="html" module="Rbncha_SyncPos" area="frontend"/>
+    <template id="rsync_vend_integration_email_template" label="Vend Integration Email" file="vend_integration_email_template.html" type="html" module="Rbncha_SyncPos" area="frontend"/>
+</config>

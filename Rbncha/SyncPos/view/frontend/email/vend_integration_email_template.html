@@ -1,0 +1,37 @@
+
+<!--@subject {{trans "Seamless wholesale purchasing with TradeSquare and Vend"}} @-->
+<!--@vars {
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.is_not_virtual":"Order Type",
+"var customer_name":"Customer Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hi %customer_name," customer_name=$customer_name}}</p>
+            <p>
+            	We are pleased to announce TradeSquare and Vend have partnered to make your wholesale buying seamless, allowing you to spend less time sourcing products, and more time servicing your customers.
+            </p>
+            <p>
+            	Our new partnership means your wholesale purchases on TradeSquare will be synced automatically into Vend's platform as soon as they're shipped!
+            </p>
+            <h3>Smarter wholesale purchasing with TradeSquare and Vend - how it works:</h3>
+            <p>&nbsp;</p>
+            <ul>
+            	<li>Make your wholesale purchases on <a href="https://tradesquare.com.au">TradeSquare.com.au</a></li>
+            	<li>Once your order is shipped, the details of the product will be automatically transferred to your Vend account</li>
+            	<li>You'll receive an email confirming your products have been synced with Vend, including links to product details.</li>
+            </ul>
+            <p>For more information on the smarter way to purchase wholesale with TradeSquare and Vend, please do not hesitate to contact your Business Development Manager, or email <a href="mailto:support@TradeSquare.com.au">support@TradeSquare.com.au</a>.</p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

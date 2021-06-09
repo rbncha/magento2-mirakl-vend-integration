@@ -1,0 +1,68 @@
+<?php
+namespace Rbncha\SyncPos\Controller\Vend;
+
+use Magento\Framework\App\Action\HttpGetActionInterface as HttpGetActionInterface;
+
+class Integrate extends \Magento\Customer\Controller\AbstractAccount implements HttpGetActionInterface
+{
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
+    protected $_pageFactory;
+
+    protected $_customerSession;
+
+    protected $storeManager;
+
+    protected $_customer;
+
+    protected $_helperVend;
+
+    /**
+     * @param \Magento\Framework\App\Action\Context $context
+     */
+    public function __construct(
+        \Magento\Framework\App\Action\Context $context,
+        \Magento\Framework\View\Result\PageFactory $pageFactory,
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Customer\Model\CustomerFactory $customer,
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Rbncha\SyncPos\Helper\Vend $vendHelper
+
+    ) {
+        $this->_pageFactory = $pageFactory;
+        $this->_customerSession = $customerSession;
+        $this->_customer = $customer;
+        $this->_helperVend = $vendHelper;
+        $this->storeManager = $storeManager;
+
+
+        return parent::__construct($context);
+    }
+    /**
+     * View page action
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
+    public function execute()
+    {
+        $customerId = $this->getRequest()->getParam('cid', $this->_customerSession->getCustomer()->getId());
+        
+        if ($customerId) {
+        	
+        	$supplierId = $this->_helperVend->getSupplierId($customerId, 'Test Supplier 1234');
+        	echo $supplierId . '---------supplier id';
+        	
+        	//$suppliers = $this->_helperVend->getSuppliers($customerId);
+        	
+        	return;
+        	
+        	$customer = $this->_customer->create()->load($customerId);
+		    $this->_helperVend->notifyVendIntegrated($customer);
+        }
+        
+        exit('<br>Done');
+
+     
+    }
+}

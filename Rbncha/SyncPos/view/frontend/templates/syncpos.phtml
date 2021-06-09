@@ -1,0 +1,51 @@
+<?php
+/** @var \Rbncha\SyncPos\Block\Customer\View $block */
+?>
+<div class="block block-dashboard-info block-vend-integration">
+    <div class="block-content">
+        <div class="box box-information">
+        	<h1>Find the products you’ve purchased in Vend</h1>
+        	<span>Vend retailers that integrate with Tradesquare can immediately view all of their product details from their purchases inside their Vend account.</span>
+        </div>
+        <div class="box box-information">
+        	<div class="box box-600">
+	        	<img src="<?= $block->getViewFileUrl('images/sales-vend-image.png')?>" width="150"/>
+	        	<div style="margin-top:10px">Vend is an effortless Retail Management Software</div>
+	        	<div class="action-button">
+		        	<?php if(!$block->isVendIntegrated()):?>
+		        		<button class="action primary check-vend-enabled" type="button">
+		                    <span><?= $block->escapeHtml(__('Integrate with Vend')) ?></span>
+		                </button>
+	                <?php else:?>
+	                    <button class="action primary" type="button" onclick="location.href='<?= $block->escapeUrl($block->getUrl('rsyncpos/vend/remove'))?>'">
+	                    	<span>Remove Vend integration</span>
+	                 	</button>
+	                <?php endif?>
+	            </div>
+	        </div>
+        </div>
+        
+        <div class="block-content">
+	        <div class="box box-information box-steps">
+	        	<img src="<?= $block->getViewFileUrl('images/sales-vend-steps.png')?>" />
+	        </div>
+	    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require([ 'jquery', 'jquery/ui'], function($){
+    	
+    	$('.check-vend-enabled').click(function(){
+    		<?php 
+    		if(!$this->helper('\Rbncha\SyncPos\Helper\Vend')->getIsVendEnabled()){
+    			echo 'alert("Please enable Vend in configuration");';
+    			echo 'return false';
+    		}else{
+    			echo 'location.href="' . $block->getVendAuthorizationUrl() . '";';
+    		}
+    		?>
+    	});
+    	
+	});
+</script>

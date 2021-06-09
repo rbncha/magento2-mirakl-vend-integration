@@ -1,0 +1,13 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <update handle="customer_account"/> 
+    <body>
+    	<referenceBlock name="page.main.title" remove="true" />
+		<referenceContainer name="page.messages">
+	        <block class="Magento\Framework\View\Element\Messages" name="messages" as="messages"/>
+	    </referenceContainer>
+		<referenceContainer name="content"> 
+                <block class="Rbncha\SyncPos\Block\Customer\View" name="rsyncpos.view" template="Rbncha_SyncPos::syncpos.phtml" cacheable="false"> 
+            </block> 
+        </referenceContainer> 
+    </body> 
+</page>

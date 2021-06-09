@@ -1,0 +1,47 @@
+
+<!--@subject {{trans "Your wholesale purchased from TradeSquare has synced with Vend" store_name=$store.frontend_name}} @-->
+<!--@vars {
+"var order.increment_id":"Order Id",
+"layout handle=\"rsyncpos_email_order_items\" order=$order area=\"frontend\"":"Order Items Grid",
+"var created_at_formatted":"Order Created At (datetime)",
+"var store.frontend_name":"Store Frontend Name",
+"var store_phone":"Store Phone",
+"var store_email":"Store Email",
+"var store_hours":"Store Hours",
+"var this.getUrl($store,'customer/account/',[_nosid:1])":"Customer Account URL",
+"var order_data.is_not_virtual":"Order Type",
+"var order":"Order",
+"var customer_name":"Customer Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">{{trans "Hi %customer_name," customer_name=$customer_name}}</p>
+            
+            <p>
+            	We are pleased to advise your recent wholesale purchase from <a href="https://tradesquare.com.au">TradeSquare.com.au</a> has been shipped and is now available on your Vend account.
+            </p>
+            <p>
+            	Please click on the "<strong>Vend Url</strong>" below to view products now available on your Vend account:
+            </p>
+            
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td>
+            {{layout handle="rsyncpos_email_order_items" order=$order area="frontend"}}
+        </td>
+    </tr>
+    <tr class="email-intro">
+    	<td>
+    		<p>&nbsp;</p>
+    		<p>We hope you enjoy the smarter way to shop wholesale with TradeSquare and Vend!</p>
+    		<p>Please do not hesitate to contact your Business Success Manager or <a href="mailto:support@tradeSquare.com.au">support@TradeSquare.com.au</a> if you have any questions or need assistance.</p>
+    	</td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}
